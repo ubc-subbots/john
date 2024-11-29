@@ -7,4 +7,4 @@ Planning:
 
 Subscribes to nodes defined in navigation that gives us force input
 
-Publishes to IMU driver/controls the drivers/imu/out (sensor_msgs/Imu) : IMU data: linear acceleration and angular velocity
+Publish output forces

@@ -28,7 +28,7 @@ namespace john_controls
       this->declare_parameter<int>("bits_per_thruster", bits_per_thruster_);
       this->get_parameter("bits_per_thruster", bits_per_thruster_);
 
-    // max forward and reverse thrust levels, convert to newtons
+    // max forward and reverse thrust levels, confvert to newtons
       this->declare_parameter<double>("max_fwd", max_fwd_);
       this->get_parameter("max_fwd", max_fwd_);
       max_fwd_ *= 9.807; // kgf to N
@@ -128,7 +128,6 @@ namespace john_controls
       //combined to 32 bit integer signal, intended for the teensy
 
 
-
       // TODO: PLEASE CHANGE ME LATER
       // so that the teensy can distinguish between rubbish and real data
       signal |= 0b10101010000000000000000000000000;
@@ -168,14 +167,7 @@ namespace john_controls
       return alloc_mat_trans;
   }
 
-  /**
-  Example:
-   20 N
-   ->
-   a positive number, encode to upper halve
 
-
-   */
   uint32_t ThrustAllocator::forceToLevel(double force) const{
     // we can use piecewise for finer grained control fort lower force levels
 
@@ -183,7 +175,7 @@ namespace john_controls
 
     // for positive forces, levels are distributed between encode_levels /2 to encode_levels-1,
     
-    // negatuve is 0 to encode_levels/2 -1
+    // negative is 0 to encode_levels/2 -1
     // encode_levels is 32 bits right now, this varies depending on the thruster
     // thrusters have discrete levels of power rather than directly mapping a continous value
     // 2^5 = 32
@@ -211,7 +203,7 @@ namespace john_controls
 
 
     
-} // namespace triton_controls
+} // namespace john_controls
 
 
 int main(int argc, char * argv[])
@@ -219,7 +211,7 @@ int main(int argc, char * argv[])
   try {
     rclcpp::init(argc, argv);
     auto options = rclcpp::NodeOptions();
-    rclcpp::spin(std::make_shared<triton_controls::ThrustAllocator>(options));
+    rclcpp::spin(std::make_shared<john_controls::ThrustAllocator>(options));
     rclcpp::shutdown();
   } catch (rclcpp::exceptions::RCLError const&){} // during testing sometimes throws error
   return 0;

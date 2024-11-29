@@ -5,6 +5,7 @@
 #include <utility>
 #include <vector>
 
+#include <opencv2/core.hpp>
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/wrench.hpp"
 #include "std_msgs/msg/float64_multi_array.hpp"
@@ -84,16 +85,16 @@ namespace john_controls
         double max_fwd_ = 0;
         double max_rev_ = 0;
         std::vector<double> x_lens_;
-        std::vector<double> y_lens_;s
+        std::vector<double> y_lens_;
         std::vector<double> z_lens_;
         std::vector<double> x_contribs_;
         std::vector<double> y_contribs_;
         std::vector<double> z_contribs_;
     };
     
-} // namespace triton_controls
+} // namespace john_controls
 
 #include "rclcpp_components/register_node_macro.hpp"
-RCLCPP_COMPONENTS_REGISTER_NODE(triton_controls::ThrustAllocator)
+RCLCPP_COMPONENTS_REGISTER_NODE(john_controls::ThrustAllocator)
 
 #endif  //JOHN_CONTROL__THRUST_ALLOCATOR
