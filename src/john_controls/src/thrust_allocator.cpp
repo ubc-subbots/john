@@ -100,7 +100,7 @@ namespace john_controls
     // mutliplied by pseudo inversde to compute thrusts
     if (std::isnan(msg->force.x) || std::isnan(msg->force.y) || std::isnan(msg->force.z) ||
         std::isnan(msg->torque.x) || std::isnan(msg->torque.y) || std::isnan(msg->torque.z)) {
-        std::cout << "INVALID INPUT FORCES " << endl;
+        std::cout << "INVALID INPUT FORCES " << std::endl;
         return;
     }
     std::vector<double> tau_vec = {msg->force.x, msg->force.y, msg->force.z,

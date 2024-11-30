@@ -35,8 +35,6 @@ https://publications-cnrc.canada.ca/eng/view/ft/?id=43560a68-dee6-4a39-9a91-dfd5
     - In the config file, you MUST define the thrusters `t1,...,tn` in the config file where `n = num_thrusters`. See the config file for examples of this configuration
     - You can currently only configure up to **6** thrusters.
     - In the `config.yaml`, the root key must be the full name of the node being configured
-    - Here is a diagram showing how to parameterize a thruster (assume it's in the `z = 0` plane of the centre of mass)
-    ![Thruster Config](../../assets/thruster_config.jpg)  
     Be aware that in this example `t1.ly` would be negative, `t1.lx` would be positive, and `t1.contrib.x`, `t1.contrib.y` would both also be positive.
  
 
